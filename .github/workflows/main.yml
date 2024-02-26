@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  Test_Eco_infra_Action:
+    runs-on: ubuntu-latest
+    name: A job to run the Eco Infra Action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Eco Infra Action
+        uses: ./
+        with:
+          token: '503cdc80-ffd7-4e69-bb04-d7d27562cd04'
+          project-name: 'my-project'
+          path: './terraform'
+          apply: 'true'

@@ -1,0 +1,23 @@
+name: 'Eco Infra Action'
+description: 'Report on emissions directly from your CI/CD pipeline'
+inputs:
+  token:
+    description: 'API Token, find this on the Eco Infra platform dashboard under user settings'
+    required: true
+
+  project-name:
+    description: 'Identifier for the project'
+    required: true
+
+  path:
+    description: 'Path of the project'
+    required: true
+
+  apply:
+    description: 'Apply to Eco Infra Platform'
+    required: true
+    default: 'true'
+
+runs:
+  using: 'node20'
+  main: 'index.js'
