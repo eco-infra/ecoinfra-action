@@ -10,7 +10,10 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.1.7"
-      - run: terraform init
+      - run: |
+          cd terraform
+          terraform init
+          cd ..
       - name: Run Eco Infra Action
         uses: ./
         with:
