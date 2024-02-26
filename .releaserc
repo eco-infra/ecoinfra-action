@@ -1,0 +1,9 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/git",
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator"
+
+  ]
+}
