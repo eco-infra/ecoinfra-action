@@ -7,8 +7,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: action
       - name: Run Eco Infra Action
-        uses: ./
+        uses: ./action
         with:
           token: '503cdc80-ffd7-4e69-bb04-d7d27562cd04'
           project-name: 'my-project'
