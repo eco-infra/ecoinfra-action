@@ -24,7 +24,7 @@ Report on emissions directly from your CI/CD pipeline
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
+uses: ecoinfra/ecoinfra-action@v1
 with:
   token: '64865a80-9431-48d8-9cd4-0aaca15ec377'
   project-name: 'my-project'
