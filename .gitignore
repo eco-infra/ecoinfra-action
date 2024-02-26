@@ -1,1 +1,3 @@
 ecoinfra-linux
+**/.terraform
+**/.terraform.lock.hcl
