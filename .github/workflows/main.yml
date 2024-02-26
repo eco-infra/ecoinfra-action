@@ -17,7 +17,7 @@ jobs:
       - name: Run Eco Infra Action
         uses: ./
         with:
-          token: '503cdc80-ffd7-4e69-bb04-d7d27562cd04'
+          token: ${{ secrets.ECO_INFRA_API_TOKEN }}
           project-name: 'my-project'
           path: './terraform'
           apply: 'true'
@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Build
+      - name: Install
         run: |
           npm ci
 
