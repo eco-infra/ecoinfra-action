@@ -1,5 +1,8 @@
 name: 'Eco Infra Action'
 description: 'Report on emissions directly from your CI/CD pipeline'
+branding:
+  icon: 'terminal'
+  color: 'green'
 inputs:
   token:
     description: 'API Token, find this on the Eco Infra platform dashboard under user settings'
