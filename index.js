@@ -4,7 +4,7 @@ const https = require('https');
 const fs = require('fs');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const {basename, dirname} = require('path')
+const {basename} = require('path')
 
 
 const run = async () => {
