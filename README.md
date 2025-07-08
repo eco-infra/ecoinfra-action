@@ -12,13 +12,9 @@ Report on emissions directly from your CI/CD pipeline
 
 **Required** Identifier for the project.
 
-### `path`
+### `plan-file`
 
-**Required** Path of the project.
-
-### `apply`
-
-**Required** Apply to Eco Infra Platform. Defaults to `"true"`.
+**Required** Path of the plan file.
 
 
 ## Example usage
