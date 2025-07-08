@@ -13,13 +13,15 @@ jobs:
       - run: |
           cd terraform
           terraform init
+          terraform plan -out=plan.tfplan
+          terraform show -json plan.tfplan > plan.json
           cd ..
       - name: Run Eco Infra Action
         uses: ./
         with:
           token: ${{ secrets.ECO_INFRA_API_TOKEN }}
           project-name: 'my-project'
-          path: './terraform'
+          plan-file: './terraform/plan.json'
           apply: 'true'
   Release:
     name: Release
