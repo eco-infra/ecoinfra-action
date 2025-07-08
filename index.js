@@ -48,7 +48,7 @@ const run = async () => {
         const {
             stdout,
             stderr
-        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${dirname(planFile)}`);
+        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${planFile}`);
         if (stderr) {
             console.log('stderr', stderr)
             throw new Error(stderr)
