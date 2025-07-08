@@ -12,14 +12,9 @@ inputs:
     description: 'Identifier for the project'
     required: true
 
-  path:
-    description: 'Path of the project'
+  plan-file:
+    description: 'Path of the plan file to use for the Eco Infra Platform'
     required: true
-
-  apply:
-    description: 'Apply to Eco Infra Platform'
-    required: true
-    default: 'true'
 
 runs:
   using: 'node20'
