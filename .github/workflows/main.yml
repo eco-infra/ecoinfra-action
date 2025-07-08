@@ -32,7 +32,6 @@ jobs:
           token: ${{ secrets.ECO_INFRA_API_TOKEN }}
           project-name: 'my-project'
           plan-file: './terraform/plan.json'
-          apply: 'true'
   Release:
     name: Release
     runs-on: ubuntu-latest
