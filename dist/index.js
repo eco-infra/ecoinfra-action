@@ -30874,7 +30874,7 @@ const https = __nccwpck_require__(5687);
 const fs = __nccwpck_require__(7147);
 const util = __nccwpck_require__(3837);
 const exec = util.promisify((__nccwpck_require__(2081).exec));
-const {basename, dirname} = __nccwpck_require__(1017)
+const {basename} = __nccwpck_require__(1017)
 
 
 const run = async () => {
@@ -30918,7 +30918,7 @@ const run = async () => {
         const {
             stdout,
             stderr
-        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${dirname(planFile)}`);
+        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${planFile}`);
         if (stderr) {
             console.log('stderr', stderr)
             throw new Error(stderr)
