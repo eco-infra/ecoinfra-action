@@ -10,6 +10,13 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.1.7"
+
+      - name: Configure AWS credentials for Terraform Test
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/EcoInfraAction
+          aws-region: eu-west-2
+
       - run: |
           cd terraform
           terraform init
