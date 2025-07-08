@@ -30880,8 +30880,7 @@ const {basename} = __nccwpck_require__(1017)
 const run = async () => {
     const token = core.getInput('token');
     const projectName = core.getInput('project-name');
-    const apply = core.getInput('apply');
-    const path = core.getInput('path');
+    const planFile = core.getInput('plan-file');
 
 
     const download = async (url = 'https://github.com/eco-infra/ecoinfra/releases/latest/download/ecoinfra-linux', dest) => {
@@ -30919,7 +30918,7 @@ const run = async () => {
         const {
             stdout,
             stderr
-        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} ${apply === 'true' ? '--apply' : ''} ${path}`);
+        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${planFile}`);
         if (stderr) {
             console.log('stderr', stderr)
             throw new Error(stderr)

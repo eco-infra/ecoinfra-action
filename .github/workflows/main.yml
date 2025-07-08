@@ -4,23 +4,34 @@ jobs:
   Test_Eco_infra_Action:
     runs-on: ubuntu-latest
     name: A job to run the Eco Infra Action
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.1.7"
+
+      - name: Configure AWS credentials for Terraform Test
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/EcoInfraAction
+          aws-region: eu-west-2
+
       - run: |
           cd terraform
           terraform init
+          terraform plan -out=plan.tfplan
+          terraform show -json plan.tfplan > plan.json
           cd ..
       - name: Run Eco Infra Action
         uses: ./
         with:
           token: ${{ secrets.ECO_INFRA_API_TOKEN }}
           project-name: 'my-project'
-          path: './terraform'
-          apply: 'true'
+          plan-file: './terraform/plan.json'
   Release:
     name: Release
     runs-on: ubuntu-latest

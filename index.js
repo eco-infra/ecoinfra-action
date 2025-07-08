@@ -4,14 +4,13 @@ const https = require('https');
 const fs = require('fs');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const {basename, dirname} = require('path')
+const {basename} = require('path')
 
 
 const run = async () => {
     const token = core.getInput('token');
     const projectName = core.getInput('project-name');
-    const apply = core.getInput('apply');
-    const localPath = core.getInput('path');
+    const planFile = core.getInput('plan-file');
 
 
     const download = async (url = 'https://github.com/eco-infra/ecoinfra/releases/latest/download/ecoinfra-linux', dest) => {
@@ -49,7 +48,7 @@ const run = async () => {
         const {
             stdout,
             stderr
-        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} ${apply === 'true' ? '--apply' : ''} ${dirname(localPath)}`);
+        } = await exec(`./ecoinfra-linux --token ${token} --project-name ${projectName} --plan-file ${planFile}`);
         if (stderr) {
             console.log('stderr', stderr)
             throw new Error(stderr)
