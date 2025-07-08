@@ -28,8 +28,7 @@ uses: ecoinfra/ecoinfra-action@v1.1.2
 with:
   token: '64865a80-9431-48d8-9cd4-0aaca15ec377'
   project-name: 'my-project'
-  path: './terraform'
-  apply: 'true'
+  plan-file: './plan.json'
 ```
 
 ## Example Output
