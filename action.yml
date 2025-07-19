@@ -12,8 +12,8 @@ inputs:
     description: 'Identifier for the project'
     required: true
 
-  plan-file:
-    description: 'Path of the plan file to use for the Eco Infra Platform'
+-file:
+    description: 'Path of the json file to use for the Eco Infra Platform'
     required: true
 
 runs:
